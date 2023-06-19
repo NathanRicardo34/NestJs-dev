@@ -9,13 +9,13 @@ export class TasksController {
     private taskService: TaskService
     ) { }
 
-    @UseGuards(JwtAuthGuard)
+    // @UseGuards(JwtAuthGuard)
     @Get()
     async getAll(): Promise<Task[]> {
       return this.taskService.getAll()
     }
 
-    @UseGuards(JwtAuthGuard)
+    // @UseGuards(JwtAuthGuard)
     @Get(':id')
     async getById(@Param('id') id: string): Promise<Task> {
       return this.taskService.getById(id)

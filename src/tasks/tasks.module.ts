@@ -3,10 +3,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TasksController } from './tasks.controller';
 import { TaskService } from './shared/task-service/task-service';
 import { TaskSchema } from './schemas/task.schema'
+import { RedisService } from '@/config/redis';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'Task', schema: TaskSchema }])],
   controllers: [TasksController],
-  providers: [TaskService],
+  providers: [TaskService, RedisService],
 })
 export class TasksModule {}

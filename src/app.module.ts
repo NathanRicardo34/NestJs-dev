@@ -5,6 +5,8 @@ import { TasksModule } from './tasks/tasks.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { PrismaService } from './config/prisma';
+import { RedisService } from './config/redis';
 
 @Module({
   imports: [
@@ -14,6 +16,9 @@ import { AuthModule } from './auth/auth.module';
     AuthModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    PrismaService,
+  ],
 })
 export class AppModule {}
